@@ -1,0 +1,43 @@
+<div class="container">
+    <!-- logo -->
+    <img src="../../../assets/img/INICIO-25-03-2024.png" alt="" width="350px" height="150px">
+
+    <!-- barra de pesquisa -->
+
+    <input type="search" name="pesquisa" [formControl]="input" placeholder="Pesquisar">
+    <label for="pesquisa">
+    </label>
+
+
+</div>
+<!-- characters -->
+<section>
+    <ul>
+        @for (item of results(); track item) {
+            <li>
+                <img [src]="item.image" width="180px" height="180px">
+                
+                <p class="firstP">
+                    {{item.name}}
+                </p>
+
+                <p>
+                    {{item.species}}
+                </p>
+
+                <p class="lastP">
+                    {{item.status}}
+                </p>
+
+                <app-favorite-icon 
+                [isFavorite]="favoriteIds().includes(item.id)" 
+                (click)="addToFavorites(item)"
+                style="cursor: pointer;" />
+            </li>
+        } @empty {
+            <li id="empty">
+                Nenhum personagem encontrado.
+            </li>
+        }
+    </ul>
+</section>

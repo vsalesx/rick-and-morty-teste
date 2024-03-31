@@ -1,0 +1,17 @@
+<header>
+    <img class="logo" src="assets/img/logo.png" alt="">
+    <button id="inicio" [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <img class="iconeHome" src="../../../assets/icons/home.svg" alt="">
+        início
+    </button>
+
+    <button id="favoritos" [routerLink]="['favorites']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <img class="iconeFav" src="assets/icons/favorito.svg" alt="">
+        favoritos
+        <span>{{counter()}}
+        </span>
+    </button>
+
+    
+
+</header>

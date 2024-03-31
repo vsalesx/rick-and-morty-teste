@@ -1,0 +1,28 @@
+<div class="container">
+    <img src="../../../assets/img/FAVORITOS-25-03-2024.png" alt="" width="190px" height="100px">
+</div>
+
+<section>
+    <ul>
+        @for (item of favorites() ; track item) {
+            <li>
+                <img [src]="item.image" width="180px" height="180px">
+                <p class="firstP">
+                    {{item.name}}
+                </p>
+                <p>
+                    {{item.species}}
+                </p>
+                <p class="lastP">
+                    {{item.status}}
+                </p>
+                <app-favorite-icon [isFavorite]="true" (click)="removeFromFavorites(item)" style="cursor: pointer;" />
+
+            </li>
+        }@empty {
+            <li id="empty">
+                Nenhum personagem favoritado
+            </li>
+        }
+    </ul>
+</section>
